@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(routers.urls)),
     path('api/auth/', include('blog.urls'))
+    
 
     
 ]
