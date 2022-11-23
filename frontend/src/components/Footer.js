@@ -6,19 +6,22 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 const FooterContainer = styled.div`
 display:flex;
-justify-content:space-between;
+justify-content:space-around;
 background:skyBlue;
-padding:2em;
+padding:3em;
 color:#06283D;
+
 `
 const FooterUl = styled.ul`
+margin:3em;
 
 jusify_content:space-between; 
 `
 const FooterList = styled.li`
 list-style-type:none;
-
 font-size:1rem;
+margin:1em;
+
 font-weight:bold;
 
 `
@@ -31,10 +34,6 @@ const FooterHeading = styled.h1`
 font-size:1.5rem;
 font-weight:bold;`
 
-// const MaterianUl=styled.div`
-// display:flex;
-// flex-direction:column;
-// gap:3em;
 
 const FooterPara = styled.p`
 color:#2C3639;
@@ -46,11 +45,11 @@ const Footer = () => {
     return (
       <FooterContainer>
         
-        <FooterUl>
+        {/* <FooterUl>
         <FooterHeading>
         Blog
         </FooterHeading>
-      </FooterUl>
+      </FooterUl> */}
 
 
 
@@ -71,9 +70,7 @@ const Footer = () => {
        </FooterHeading>
         <FooterList>Profile</FooterList>
         <FooterList>Name</FooterList>
-        {/* <FooterList>Custom Creator</FooterList> */}
         <FooterList> Create Blog</FooterList>
-        {/* <FooterList>Cover Creator</FooterList> */}
      
       </FooterUl>
       

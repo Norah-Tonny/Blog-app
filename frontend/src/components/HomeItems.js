@@ -3,7 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import axios from 'axios';
 import { useEffect,useState } from 'react';
-
+import { handleBreakpoints } from "@mui/system";
+import { Link } from "react-router-dom";
 const Heading = styled.h1`
 color:#06283D;
   font-size: 2rem;
@@ -43,15 +44,12 @@ display:flex;
 flex:right;
 margin:3em;
 `;
+const Button = styled.button`
+padding:1em 2em;`
 
-// const Image = styled.img`
-// width:80px;
-// height:80px;
-// border:2px solid skyBlue;
-// border-radius:30%;
-// `
 function HomeItems() {
   const [data, setData] = useState([]);
+
   
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/blogs/')
@@ -74,10 +72,13 @@ function HomeItems() {
           data.map((data, index) => {
         return (
           <Container key={index}>
-            {/* <Image src={data.img}/> */}
             <Heading>{data.blogtitle }</Heading>
-            <Paragraph>{data.blogdescription }</Paragraph>
-            <Comment>{data.bloger }</Comment>
+            <Paragraph>{data.blogdescription}</Paragraph>
+             <div
+      dangerouslySetInnerHTML={{__html: data.blogpost}}
+    />
+            <Comment>{data.bloger}</Comment>
+            <Button><a href="singleblog">View blog</a></Button>
           </Container>
         );
       })}

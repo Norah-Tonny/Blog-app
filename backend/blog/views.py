@@ -5,14 +5,21 @@ from rest_framework import viewsets, permissions, status
 
 from rest_framework.views import APIView
 
-from .serializers import BlogSerializer, UserSerializer
+from .serializers import BlogSerializer, UserSerializer,CustomTokenObtainPairSerializer
 from rest_framework.response import Response
+from rest_framework_simplejwt.views import TokenObtainPairView
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
 class BlogView(viewsets.ModelViewSet):
     serializer_class=BlogSerializer
     queryset=Blog.objects.all()
+
+    
+
+class CustomTokenObtainPairview(TokenObtainPairView):
+    serializer_class=CustomTokenObtainPairSerializer
 
 
 
@@ -38,5 +45,3 @@ class UserView(APIView):
 #             return Response(serializer.data,status=status.HTTP_201_CREATED)
 #         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     
-
-
