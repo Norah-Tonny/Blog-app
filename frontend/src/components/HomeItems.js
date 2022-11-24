@@ -30,14 +30,13 @@ gap:2em;
 margin:2em;
 
 `
-// const Image= styled.img`
-// border:2px solid skyBlue;`
 
 const InnerContainer = styled.div`
 margin:0 auto;
-width:40%;
+width:100%;
+justify_conent:space-around;
 display:flex;
-flex-direction:column;
+flex-direction:row;
 `
 
 const Paragraph = styled.p`
@@ -78,14 +77,14 @@ function HomeItems() {
           data.map((data, index) => {
         return (
           <Container key={index}>
-       
-            <img src={data.image} width="60%" />
-           
+      
+            <img src={data.image } width="100%" />
+         
             <Heading>{data.blogtitle }</Heading>
             <Paragraph>{data.blogdescription}</Paragraph>
-             <div
+             {/* <div
       dangerouslySetInnerHTML={{__html: data.blogpost}}
-    />
+    /> */}
             <Comment>{data.bloger}</Comment>
             <Button><a href={`/blog/${data.slug}`}>View blog</a></Button>
           </Container>
