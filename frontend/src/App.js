@@ -6,6 +6,7 @@ import Register from "./Pages/Register.js";
 import './App.css';
 import LogOut from "./Pages/Logout";
 import { LoginState } from "./Context/LoginState";
+import SingleBlog from "./Pages/SingleBlog";
 function App() {
   return (
    <LoginState>
@@ -13,9 +14,10 @@ function App() {
     <Routes>
 
       <Route path="/" element={<Home/>}/>
-      <Route path="/Addblog" element={<AddBlog/>}/>
+      <Route path="/addblog" element={<AddBlog/>}/>
         <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login />} />
+          <Route path="/blog/:slug" element={< SingleBlog/>} />
           <Route path="/Logout" element={<LogOut />} />
           
     </Routes>

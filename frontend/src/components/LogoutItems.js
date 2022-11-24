@@ -8,6 +8,7 @@ const Container = styled.div`
 margin:2em;
 border-radius:7px;
 padding:3em;
+background: #8758FF;
 `
 const Heading = styled.h2`
 `
@@ -23,6 +24,7 @@ cursor:pointer;
 const InnerContainer = styled.div`
 margin:0 auto;
 width:50%;
+background: #8758FF;
 border:2px solid skyBlue;
 padding:3em;
 border-radius:7px;

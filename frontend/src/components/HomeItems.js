@@ -13,7 +13,7 @@ color:#06283D;
 `;
 
 const HomeContainer = styled.div`
-  background: #256d85;
+background: #8758FF;
   color:#06283D;
   text-align:center;
   padding:3em;
@@ -30,6 +30,9 @@ gap:2em;
 margin:2em;
 
 `
+// const Image= styled.img`
+// border:2px solid skyBlue;`
+
 const InnerContainer = styled.div`
 margin:0 auto;
 width:40%;
@@ -64,21 +67,27 @@ function HomeItems() {
         console.error('Error:',error);
        });
  
-}, [])
+  }, [])
+  
+  
   return (
+
     <HomeContainer>
       <InnerContainer>
         {
           data.map((data, index) => {
         return (
           <Container key={index}>
+       
+            <img src={data.image} width="60%" />
+           
             <Heading>{data.blogtitle }</Heading>
             <Paragraph>{data.blogdescription}</Paragraph>
              <div
       dangerouslySetInnerHTML={{__html: data.blogpost}}
     />
             <Comment>{data.bloger}</Comment>
-            <Button><a href="singleblog">View blog</a></Button>
+            <Button><a href={`/blog/${data.slug}`}>View blog</a></Button>
           </Container>
         );
       })}

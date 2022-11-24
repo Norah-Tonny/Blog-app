@@ -9,7 +9,7 @@ import LoginContext from "../Context/LoginState.js";
 
 
 const Container = styled.div`
-  background: #256d85;
+background: #8758FF;
 `;
 const LoginContainer = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ background:white;
 border-radius:6px;
 // width:35%;
 padding:.4em .5em;
-border:2px solid red;
+
 `;
 const InputContain = styled.div`
 background:skyBlue;

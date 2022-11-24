@@ -6,16 +6,15 @@ import { react, useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import slugify from 'react-slugify';
 const Container = styled.div`
-  background: #06283d;
-
-  background: #256d85;
-`;
+background: #8758FF;
+`
+;
 const InnerContainer = styled.div`
   margin: 0 auto;
   width: 40%;
-  border: 2px solid skyBlue;
+  // border: 2px solid skyBlue;
   color: skyBlue;
-  background: #256d85;
+  background: #8758FF;
   gap: 3em;
   padding: 3em;
   text-align: center;
@@ -28,12 +27,17 @@ const Button = styled.button`
 `;
 
 const InputArea = styled.input`
-  padding: 0.5em 1em;
+  padding: 1em 1em;
   color: skyBlue;
   border-radius: 10px;
   mrgin:2em;
 `;
-const Input = styled.input``
+const Input = styled.input`
+width:100%;
+height:5%;
+padding:1.5em;
+border-radius: 10px;
+`
 const Blogtitle = styled.div`
   margin: 2em 0;
 `;
@@ -42,13 +46,17 @@ const Blogdesc = styled.div`
   margin: 2em 0;
 `;
 
+const Editors = styled.div`
+margin:3em;
+margin-left:1em;`
+
 const TextareaField = styled.textarea`
   background: white;
   padding: 1em;
   border-radius: 10px;
 `;
 const InputBloger = styled.div`
-margin: 3em 0;
+// margin: 3em 0;
 `
 const ButtonPost = styled.div`
 margin: 3em 0;
@@ -59,10 +67,10 @@ display:flex;
 flex-direction:column;
 width:20%;
 `
-
+const InputSlug=styled.div``
 const Bloger = styled.div`
 display:flex;
-justify-content:space-between;
+justify-content:space-around;
 `
 
 const Header = styled.h1`
@@ -112,7 +120,7 @@ function BlogItems() {
             id="writing"
             name="text"
             rows="3"
-            cols="40"
+            cols="100"
             type="text"
             value={data.blogtitle}
             placeholder="Blog Title "
@@ -127,7 +135,7 @@ function BlogItems() {
             id="writing"
             name="text"
             rows="5"
-            cols="50"
+            cols="100"
             value={data.blogdescription}
             placeholder="Blog Description"
             onChange={(e) =>
@@ -137,7 +145,7 @@ function BlogItems() {
           {errorMessage && <p className="error"> {errorMessage}</p>}
           </Blogdesc>
           </BlogInfo>
-
+<Editors>
         <Editor
           apiKey="zkgltmpmy54faxeho6xn0rorkgjm86udin4h8492dk62pulq"
           onInit={(evt, editor) => (editorRef.current = editor)}
@@ -148,6 +156,7 @@ function BlogItems() {
           }
           init={{
             height: 500,
+            width:800,
             menubar: false,
             plugins: [
               "advlist",
@@ -178,7 +187,7 @@ function BlogItems() {
               "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
         />
-
+</Editors>
         {/* <Header>Bloger</Header> */}
         <Bloger>
         <InputBloger>
@@ -193,15 +202,17 @@ function BlogItems() {
         />
         {errorMessage && <p className="error"> {errorMessage}</p>}
           </InputBloger>
+          <InputSlug>
           <Input
             value={data.slug}
             placeholder="Slug" 
             onChange={(e) => setData({ ...data, slug: e.target.value })}
-          />
+            />
+            </InputSlug>
+        </Bloger>
         <ButtonPost>
         <Button onClick={HandleSubmit}>Post</Button>
         </ButtonPost>
-        </Bloger>
       </InnerContainer>
     </Container>
   );

@@ -3,9 +3,9 @@ import { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import axiosInstance from "../axiosAPI.js";
-
+import { Link } from "react-router-dom";
 const Container = styled.div`
-  background: #256d85;
+background: #8758FF;
 `;
 const RegisterContainer = styled.div`
   display: flex;
@@ -151,8 +151,9 @@ const RegisterItems = () => {
         </InputPasswordContain>
         <p style={{color:'red'}}>{ error.passwordError}</p>
 
-        <Button className="btn" onClick={handleRegister}>
+        <Button className="btn" onClick={handleRegister}><Link to='/login'>
           Register
+          </Link>
         </Button>
       </RegisterContainer>
     </Container>

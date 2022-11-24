@@ -14,7 +14,13 @@ from django.shortcuts import get_object_or_404
 
 class BlogView(viewsets.ModelViewSet):
     serializer_class=BlogSerializer
-    queryset=Blog.objects.all()
+    def get_queryset(self):
+        return Blog.objects.all()
+    def get_object(self,queryset=None,**kwargs):
+       item=self.kwargs.get("pk")
+       return get_object_or_404(Blog,slug=item)
+
+
 
     
 
